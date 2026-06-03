@@ -1,3 +1,5 @@
+Install Oracle Virtual Box before reading this setup guide
+
 ### Step 1 — Download a Linux ISO
 
 You need an operating system image to install inside VirtualBox. For forensics, **Ubuntu 22.04 LTS** is the standard choice.
