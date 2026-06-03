@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SigScan — File Signature Analyzer</title>
+
+    <!-- Own Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons for a clean, modern look -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Animated background orbs for premium feel -->
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+ 
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>
+                File Signature Analyzer
+            </h1>
+            <p>
+                Upload any file. The analyzer reads its first <span class="highlight">8 raw bytes</span> and matches them against 
+                known cryptographic signatures — exposing disguised executables, spoofed extensions, 
+                and file masquerading attempts used by attackers.
+            </p>
+        </header>
+
+        <!-- Upload Zone -->
+
+            <div class="upload-card" id="uploadCard">
+
+                    <div class="upload-area" id="drop-zone">
+                    <i class="ph-duotone ph-upload-simple upload-icon"></i>
+                    <h2>Drag & Drop File For Analysis</h2>
+                    <p>or click to browse from your device</p>
+
+                    <input type="file" id="fileInput" style="display: none" accept="*/*">
+                    <button class="upload-btn" onclick="document.getElementById('file-input').click()">Select File</button>
+                    </div>
+            </div>
+
+        <!-- File Info Strip (hidden until file selected) -->
+    <div class="upload-card" id="uploadCardOne" style="display:none; margin-top: 18px">
+
+        <section class="file-info-strip" id="fileInfoStrip">
+            <div class="info-item">
+                <span class="info-label">FILE</span>
+                <span class="info-value" id="infoFileName">—</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <span class="info-label">SIZE</span>
+                <span class="info-value" id="infoFileSize">—</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <span class="info-label">EXTENSION</span>
+                <span class="info-value" id="infoFileExt">—</span>
+            </div>
+            <div class="info-divider"></div>
+            <div class="info-item">
+                <span class="info-label">STATUS</span>
+                <span class="info-value status-waiting" id="infoStatus">AWAITING SCAN</span>
+            </div>
+        </section>
+
+        <!-- Analyze Button -->
+        <div class="btn-wrapper" id="btnWrapper">
+            <button class="upload-btn" id="analyzeBtn">
+                <span class="btn-text">ANALYZE SIGNATURE</span>
+            </button>
+        </div>
+    </div>
+
+        <!-- Result Panel (hidden until result arrives) -->
+    <div class="upload-card" id="uploadCardTwo" style="display:none; margin-top: 18px">
+        <section class="result-panel" id="resultPanel">
+
+            <div class="result-header">
+                <div class="result-header-left">
+                    <span class="result-label">SCAN RESULT</span>
+                    <div class="result-blink"></div>
+                </div>
+                <span class="result-timestamp" id="resultTimestamp">—</span>
+            </div>
+
+            <!-- MATCH Result -->
+            <div class="result-body result-match" id="resultMatch">
+                <div class="verdict-icon verdict-safe">✓</div>
+                <div class="verdict-text">
+                    <p class="verdict-title">SIGNATURE VERIFIED</p>
+                    <p class="verdict-sub">File extension matches its true magic number signature.</p>
+                </div>
+            </div>
+
+            <!-- ALERT Result -->
+            <div class="result-body result-alert" id="resultAlert">
+                <div class="verdict-icon verdict-danger">!</div>
+                <div class="verdict-text">
+                    <p class="verdict-title">FORENSIC ALERT</p>
+                    <p class="verdict-sub">File extension does NOT match its true magic number. Possible masquerading detected.</p>
+                </div>
+            </div>
+
+            <!-- UNKNOWN Result -->
+            <div class="result-body result-unknown" id="resultUnknown">
+                <div class="verdict-icon verdict-warn">?</div>
+                <div class="verdict-text">
+                    <p class="verdict-title">SIGNATURE UNKNOWN</p>
+                    <p class="verdict-sub">No matching magic number found in the dictionary.</p>
+                </div>
+            </div>
+
+            <!-- Detail rows -->
+            <div class="result-details" id="resultDetails">
+                <div class="detail-row">
+                    <span class="detail-key">FILE NAME</span>
+                    <span class="detail-val" id="detailFileName">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">TRUE FILE TYPE</span>
+                    <span class="detail-val accent" id="detailTrueType">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">DECLARED EXTENSION</span>
+                    <span class="detail-val" id="detailExtension">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">BACKEND RESPONSE</span>
+                    <span class="detail-val mono" id="detailMessage">—</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+:root {
+    /* Premium Dark Mode Colors */
+    --bg-color: #0b0f19;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary: #a855f7;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+} 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding: 2rem 0;
+}
+/* Background Effects for Glassmorphism */
+.background-effects {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    animation: float 10s infinite alternate ease-in-out;
+}
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    top: -100px;
+    left: -100px;
+}
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--secondary);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -5s;
+}
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    z-index: 1;
+}
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+/* Glassmorphic Upload Card */
+.upload-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.upload-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 40px var(--primary-glow);
+}
+/* Upload Area Drop Zone */
+.upload-area {
+    border: 2px dashed var(--card-border);
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.01);
+}
+.upload-area:hover {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+.upload-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+.upload-area:hover .upload-icon {
+    transform: translateY(-5px) scale(1.05);
+}
+.upload-area h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.upload-area p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+/* Custom Gradient Button */
+.upload-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px -10px var(--primary);
+}
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -10px var(--primary);
+    filter: brightness(1.1);
+}
+/* Trust Info Section */
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.info-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}

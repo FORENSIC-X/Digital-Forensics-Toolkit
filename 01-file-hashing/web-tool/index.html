@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Forensics File Hasher</title>
+
+    <!-- Own Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons for a clean, modern look -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <!-- Animated background orbs for premium feel -->
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Forensic Hasher</h1>
+            <p>Ensure data integrity with secure, client-side SHA-256 fingerprinting.</p>
+        </header>
+ 
+        <!-- Glassmorphic Card -->
+        <div class="upload-card">
+            <div class="upload-area" id="drop-zone">
+                <i class="ph-duotone ph-upload-simple upload-icon"></i>
+                <h2>Drag & Drop Evidence File</h2>
+                <p>or click to browse from your device</p>
+                <input type="file" id="file-input" hidden>
+                <button class="upload-btn" onclick="document.getElementById('file-input').click()">Select File</button>
+            </div>
+        </div>
+        
+        <!-- Hash Result Container (Hidden by default) -->
+        <div id="result-container" class="upload-card" style="display: none; margin-top: 1.5rem; text-align: center; padding: 1.5rem;">
+            <h3 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">SHA-256 Hash</h3>
+            <p id="hash-output" style="font-family: monospace; font-size: 1.1rem; word-break: break-all; color: var(--secondary);"></p>
+        </div>
+        
+        <!-- Trust/Info indicators -->
+        <div class="info-section">
+            <div class="info-item">
+                <i class="ph ph-shield-check"></i>
+                <span>100% Client-Side</span>
+            </div>
+            <div class="info-item">
+                <i class="ph ph-lock-key"></i>
+                <span>No Data Uploaded</span>
+            </div>
+            <div class="info-item">
+                <i class="ph ph-fingerprint"></i>
+                <span>SHA-256 Integrity</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Linking the WebAssembly (WASM) library [hash-wasm for this project]  -->
+    <script src="https://cdn.jsdelivr.net/npm/hash-wasm@4/dist/index.umd.min.js"></script>
+
+    <!-- JS [Web Crypto API] -->
+    <script src="script.js"></script>
+</body>
+</html>
