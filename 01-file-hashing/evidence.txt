@@ -1,0 +1,2 @@
+This is a top secret message for forensic analysis.
+Do not alter this file, or the hash will change!
