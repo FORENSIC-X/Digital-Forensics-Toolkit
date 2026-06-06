@@ -19,7 +19,7 @@ It supports metadata formats including EXIF, GPS, IPTC, XMP, JFIF, GeoTIFF, ICC 
 
 | Feature | Custom `metadata_extractor.py` | ExifTool |
 |---|---|---|
-| Supported formats | JPEG only (via Pillow) | 100+ file format |
+| Supported formats | JPEG only (via Pillow) | 100+ file formats |
 | Metadata tags extracted | ~10 basic EXIF tags | 10,000+ tags |
 | GPS extraction | Basic | Full GPS track + altitude |
 | Maker notes (camera internals) | No | Yes (Canon, Nikon, Sony, DJI, etc.) |
