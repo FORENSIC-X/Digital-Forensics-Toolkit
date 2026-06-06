@@ -1,9 +1,10 @@
 # Module 01 — Forensic Interview Role Play
-## Data Breach Incident Response [CASE-MU-2026-001]
+## Data Breach Incident Response 
 
 **Course:** Cybersecurity: Digital Forensics — Macquarie University (Coursera)
 **Module:** 01 — Introduction to Digital Forensics Processes
 **Activity:** Role Play — Forensic Interview for a Data Breach Incident
+**Case Number:**  [CASE-MU-2026-001]
 **Role:** Junior Digital Forensics Analyst at a Cybersecurity Firm
 **Scenario:** Active data breach investigation at a client site
 
