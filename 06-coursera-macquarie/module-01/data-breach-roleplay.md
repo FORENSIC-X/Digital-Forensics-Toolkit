@@ -1,11 +1,11 @@
 # Module 01 — Forensic Interview Role Play
-## Data Breach Incident Response — DataSafe Solutions
+## Data Breach Incident Response
 
 **Course:** Cybersecurity: Digital Forensics — Macquarie University (Coursera)
 **Module:** 01 — Introduction to Digital Forensics Processes
 **Activity:** Role Play — Forensic Interview for a Data Breach Incident
 **Role:** Junior Digital Forensics Analyst at a Cybersecurity Firm
-**Scenario:** Active data breach investigation at a client site — DataSafe Solutions
+**Scenario:** Active data breach investigation at a client site
 
 ---
 
