@@ -7,7 +7,7 @@
 | Field | Details |
 |---|---|
 | **Report Title** | Digital Forensics & Incident Response Report — Data Breach Investigation |
-| **Case Reference** | CF-2026-003 |
+| **Case Reference** | CASE-MU-2026-001 |
 | **Client Organization** | A Software Solutions Firm, Bengaluru |
 | **Investigating Firm** | [Your Firm Name] |
 | **Lead Analyst** | [Analyst Name] |
