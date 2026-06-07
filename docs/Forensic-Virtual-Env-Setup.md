@@ -10,7 +10,7 @@ Get the `.iso` file — it is approximately 6GB.
 
 > **Note:** Ubuntu follows a strict YY.MM naming convention. LTS versions 
 > are always released in April (month 04) of even-numbered years — so the 
-> versions go 22.04 → 24.04 → 26.04. There is no "26.06".
+> versions go 22.04 → 24.04 → 26.04. 
 
 ---
 
