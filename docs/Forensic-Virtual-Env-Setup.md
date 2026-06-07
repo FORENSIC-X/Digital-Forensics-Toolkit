@@ -1,50 +1,183 @@
-Install Oracle Virtual Box before reading this setup guide
+## Prerequisites
+Install Oracle VirtualBox before reading this setup guide.
 
-### Step 1 — Download a Linux ISO
+---
 
-You need an operating system image to install inside VirtualBox. For forensics, **Ubuntu 22.04 LTS** is the standard choice.
+### Step 1 — Download Ubuntu ISO
 
-Download it from: **https://ubuntu.com/download/desktop**
+Download **Ubuntu 26.04 LTS** from: https://ubuntu.com/download/desktop
 
-Get the `.iso` file — it is about 5GB.
+Get the `.iso` file — it is approximately 6GB.
+
+> **Note:** Ubuntu follows a strict YY.MM naming convention. LTS versions 
+> are always released in April (month 04) of even-numbered years — so the 
+> versions go 22.04 → 24.04 → 26.04. There is no "26.06".
 
 ---
 
 ### Step 2 — Create a New VM in VirtualBox
 
-Open VirtualBox and click **New**, then fill in:
+**Before creating the VM**, manually create the destination folder on your 
+D drive first — otherwise VirtualBox may fail to create the virtual disk:
+
+Open PowerShell and run:
+```powershell
+New-Item -ItemType Directory -Path "D:\Ubuntu VM"
+```
+
+Then open VirtualBox, click **New**, and fill in:
 
 | Setting | Value |
 |---|---|
 | Name | `Forensics-Lab` |
 | Type | `Linux` |
 | Version | `Ubuntu (64-bit)` |
-| RAM | `4096 MB` (4GB minimum) |
-| CPU cores | `2` |
-| Hard Disk | `25 GB` (dynamically allocated) |
+
+On the next screens:
+
+**Hardware:**
+| Setting | Value | Notes |
+|---|---|---|
+| Base Memory (RAM) | `6144 MB` | Based on 16GB laptop — never exceed half your total RAM |
+| Processors (CPUs) | `4` | Based on 10-core laptop |
+
+**Hard Disk:**
+| Setting | Value |
+|---|---|
+| Create a New Virtual Hard Disk | ✅ Selected |
+| Location | `D:\Ubuntu VM\Forensics-Lab\Forensics-Lab.vdi` |
+| Disk Size | `50 GB` |
+| File Type | VDI (VirtualBox Disk Image) |
+| Pre-allocate Full Size | ❌ Unticked (dynamically allocated) |
+| Split Disk Into 2 GB Parts | ❌ Unticked |
+
+> **Important settings to leave as default:**
+> - Unattended Installation → **Untick** this. Do the installation manually 
+>   for full control.
+> - EFI → **Leave unticked.** Enabling EFI can cause boot issues in 
+>   VirtualBox with Ubuntu.
+
+Click **Finish.**
 
 ---
 
-### Step 3 — Attach the ISO and Install Ubuntu
+### Step 3 — Install Ubuntu
 
-- Go to **Settings → Storage → Empty optical drive**
-- Click the disc icon and choose your downloaded `.iso` file
-- Start the VM
-- Follow Ubuntu's installer — choose **"Erase disk and install Ubuntu"** (this only erases the virtual disk, not your real laptop)
-- Set a username and password you'll remember
+Start the VM. It will boot from the ISO and launch the Ubuntu installer.
+Go through each screen as follows:
+
+**Boot menu:**
+Select **Try or Install Ubuntu.**
+(Choose "Ubuntu Safe Graphics" only if you experience display glitches.)
+
+**Internet Connection:**
+Select **Use wired connection.** VirtualBox automatically provides a 
+virtual wired connection through your laptop's internet.
+
+**What do you want to do:**
+Select **Install Ubuntu.**
+
+**How would you like to install:**
+Select **Interactive installation.**
+
+**What apps would you like to install:**
+Select **Default selection** — just the essentials.
+(Keeps the installation lean; you will install forensic tools manually.)
+
+**Install recommended proprietary software:**
+Tick **both** checkboxes:
+- ✅ Install third-party software for graphics and Wi-Fi hardware
+- ✅ Download and install support for additional media formats
+
+> These are officially curated and verified by Canonical (Ubuntu's parent 
+> company). They are safe to install. The reason Ubuntu doesn't include 
+> them by default is purely legal/licensing — some codecs are patented 
+> in certain countries.
+
+**How do you want to install Ubuntu:**
+Select **Erase disk and install Ubuntu.**
+
+> ⚠️ The warning sounds alarming but is completely safe. The "disk" 
+> it refers to is your 50GB virtual hard disk (Forensics-Lab.vdi), 
+> not your real Windows drives. Your actual C and D drives are 
+> never touched.
+
+**Encryption and file system:**
+Select **No encryption.**
+
+> Snapshot compatibility is the reason. VirtualBox snapshots — your 
+> most critical safety feature for forensics work — work best with 
+> unencrypted disks. Since the VM lives on your personal machine, 
+> your Windows login is already the security boundary.
+
+**Create your account:**
+
+| Field | Recommended value |
+|---|---|
+| Your name | `Arko` (or any name) |
+| Computer's name | `forensics-lab` (lowercase, no spaces) |
+| Username | `arko` (lowercase, no spaces) |
+| Password | Something memorable — write it down |
+
+> ⚠️ Write down your username and password. You will need them every 
+> time you log in and every time you run a `sudo` command to install 
+> tools like Python, FastAPI, Wireshark, Autopsy, and Volatility.
+
+**Checkboxes on account screen:**
+- ✅ Require my password to log in — leave ticked
+- ❌ Use Active Directory — leave unticked (corporate environments only)
+
+**Review your choices:**
+Verify the summary screen shows:
+- Type of installation: Erase disk and install Ubuntu
+- Installation disk: VBOX HARDDISK (confirms virtual disk, not real drive)
+- Disk encryption: None
+- Proprietary software: Codecs & drivers
+
+Click **Install** and wait. The "Setting Up the System" phase is the 
+longest step — it typically takes 15 to 30 minutes depending on your 
+internet speed. The SATA indicator flickering at the bottom of the 
+VirtualBox window confirms installation is actively progressing. 
+Do not close or restart the VM during this phase.
+
+When installation finishes, click **Restart Now.**
+
+If prompted with "Please remove the installation medium then press ENTER", 
+press Enter. The VM will reboot into your installed Ubuntu.
+
+> **Note:** Ubuntu automatically ejects the ISO during restart. You do 
+> not need to manually detach it from VirtualBox Storage settings. 
+> After installation you can safely delete the `.iso` file from your 
+> Downloads folder to recover ~6GB of space on your C drive.
+
+**After first boot:**
+If asked about Location Services — turn it **Off.** A forensics VM 
+has no use for location data.
 
 ---
 
 ### Step 4 — Take a Clean Snapshot (Critical Step)
 
-Once Ubuntu is installed and booted, **before doing anything else**:
+Once Ubuntu has booted to the desktop for the first time and before 
+installing anything:
 
-- In VirtualBox menu → **Machine → Take Snapshot**
-- Name it `Clean-Install`
+In VirtualBox menu → **Machine → Take Snapshot**
 
-This is your **restore point**. Any time you analyze dangerous malware and want to wipe the slate clean, you restore to this snapshot and the VM is back to day one — your host laptop is completely untouched.
+| Field | Value |
+|---|---|
+| Name | `Clean-Install` |
+| Description | `Fresh Ubuntu 26.04 installation, nothing added yet` |
 
----
+This is your permanent restore point. Any time you analyze dangerous 
+malware and something goes wrong inside the VM, restore to this snapshot 
+and the VM returns to exactly this state in about 30 seconds — your 
+Windows host and real files are never affected.
+
+> **Snapshot strategy going forward:**
+> After completing the Python + FastAPI setup in Step 5, take a second 
+> snapshot named `FastAPI-Ready`. This gives you two restore points — 
+> a completely clean OS, and a ready-to-work forensics environment.
+
 
 ### Step 5 — Install Python and FastAPI inside the VM
 
