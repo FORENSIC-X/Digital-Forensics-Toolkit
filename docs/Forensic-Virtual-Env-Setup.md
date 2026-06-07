@@ -32,12 +32,6 @@ Then open VirtualBox, click **New**, and fill in:
 | Type | `Linux` |
 | Version | `Ubuntu (64-bit)` |
 
-**Hardware:**
-| Setting | Value | Notes |
-|---|---|---|
-| Base Memory (RAM) | `6144 MB` | Based on 16GB laptop [Allocate according to Your Laptop's RAM] — never exceed half your total RAM |
-| Processors (CPUs) | `4` | Based on 10-core laptop [Allocate according to Your Laptop's Number of CPUs] |
-
 To check your Laptop's Total RAM, Open PowerShell and run:
 ```powershell
 (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB
@@ -47,6 +41,12 @@ To check how many CPU cores you have, run this in PowerShell:
 ```powershell
 (Get-CimInstance Win32_Processor).NumberOfCores
 ```
+
+**Hardware:**
+| Setting | Value | Notes |
+|---|---|---|
+| Base Memory (RAM) | `6144 MB` | Based on 16GB laptop [Allocate according to Your Laptop's RAM] — never exceed half your total RAM |
+| Processors (CPUs) | `4` | Based on 10-core laptop [Allocate according to Your Laptop's Number of CPUs] |
 
 **Hard Disk:**
 | Setting | Value |
