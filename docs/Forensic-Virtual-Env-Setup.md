@@ -1,4 +1,3 @@
-## Prerequisites
 Install Oracle VirtualBox before reading this setup guide.
 
 ---
