@@ -35,8 +35,8 @@ Then open VirtualBox, click **New**, and fill in:
 **Hardware:**
 | Setting | Value | Notes |
 |---|---|---|
-| Base Memory (RAM) | `6144 MB` | Based on 16GB laptop — never exceed half your total RAM |
-| Processors (CPUs) | `4` | Based on 10-core laptop |
+| Base Memory (RAM) | `6144 MB` | Based on 16GB laptop [Allocate according to Your Laptop's RAM] — never exceed half your total RAM |
+| Processors (CPUs) | `4` | Based on 10-core laptop [Allocate according to Your Laptop's Number of CPUs] |
 
 **Hard Disk:**
 | Setting | Value |
