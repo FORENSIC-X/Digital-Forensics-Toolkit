@@ -58,6 +58,17 @@ To check how many CPU cores you have, run this in PowerShell:
 | Pre-allocate Full Size | ❌ Unticked (dynamically allocated) |
 | Split Disk Into 2 GB Parts | ❌ Unticked |
 
+To check free space on D drive:
+```powershell
+$d = Get-PSDrive D; [math]::Round($d.Free / 1GB, 2)
+```
+
+| Free Space | Recommended Disk Size |
+|---|---|
+| Less than 50 GB | 25 GB |
+| 50 GB — 100 GB | 40 GB |
+| 100 GB+ | 50 GB |
+
 > **Important settings to leave as default:**
 > - Unattended Installation → **Untick** this. Do the installation manually 
 >   for full control.
