@@ -121,9 +121,9 @@ Select **No encryption.**
 
 | Field | Recommended value |
 |---|---|
-| Your name | `Arko` (or any name) |
-| Computer's name | `forensics-lab` (lowercase, no spaces) |
-| Username | `arko` (lowercase, no spaces) |
+| Your name | (any name) |
+| Computer's name | `forensics-lab` (lowercase, no spaces) (or any other name) |
+| Username | (Your choice) |
 | Password | Something memorable — write it down |
 
 > ⚠️ Write down your username and password. You will need them every 
