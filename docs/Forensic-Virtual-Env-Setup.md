@@ -32,8 +32,6 @@ Then open VirtualBox, click **New**, and fill in:
 | Type | `Linux` |
 | Version | `Ubuntu (64-bit)` |
 
-On the next screens:
-
 **Hardware:**
 | Setting | Value | Notes |
 |---|---|---|
