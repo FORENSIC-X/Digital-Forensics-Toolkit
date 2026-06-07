@@ -17,7 +17,7 @@ Get the `.iso` file — it is approximately 6GB.
 ### Step 2 — Create a New VM in VirtualBox
 
 **Before creating the VM**, manually create the destination folder on your 
-D drive first — otherwise VirtualBox may fail to create the virtual disk:
+C or D drive first [whichever you want, if C Drive has very less space, you can install in D Drive] — otherwise VirtualBox may fail to create the virtual disk:
 
 Open PowerShell and run:
 ```powershell
