@@ -53,7 +53,7 @@ To check how many CPU cores you have, run this in PowerShell:
 |---|---|
 | Create a New Virtual Hard Disk | ✅ Selected |
 | Location | `D:\Ubuntu VM\Forensics-Lab\Forensics-Lab.vdi` |
-| Disk Size | `50 GB` |
+| Disk Size | `50 GB` [Allocate according to Your Laptop] |
 | File Type | VDI (VirtualBox Disk Image) |
 | Pre-allocate Full Size | ❌ Unticked (dynamically allocated) |
 | Split Disk Into 2 GB Parts | ❌ Unticked |
