@@ -1,3 +1,13 @@
+# Forensic Virtual Environment Setup Guide
+
+This guide documents the step-by-step setup of an isolated Ubuntu 26.04 
+forensics VM inside Oracle VirtualBox for safe digital forensics and 
+malware analysis work. Written based on a real installation experience 
+on a Windows 11 host with 16GB RAM and a 10-core processor.
+
+All forensic analysis in this toolkit is performed inside this VM to 
+ensure the host machine is never exposed to potentially malicious files.
+
 Install Oracle VirtualBox before reading this setup guide.
 
 ---
