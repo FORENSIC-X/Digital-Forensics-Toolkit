@@ -19,7 +19,7 @@ Get the `.iso` file — it is approximately 6GB.
 **Before creating the VM**, manually create the destination folder on your 
 C or D drive first [whichever you want, if C Drive has very less space, you can install in D Drive] — otherwise VirtualBox may fail to create the virtual disk:
 
-Open PowerShell and run:
+Open PowerShell and run: [Suppose you install in D Drive]
 ```powershell
 New-Item -ItemType Directory -Path "D:\Ubuntu VM"
 ```
