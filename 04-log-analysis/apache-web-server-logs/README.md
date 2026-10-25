@@ -127,4 +127,4 @@ FORENSIC LOG ANALYSIS REPORT
 - Sophisticated attackers may use **IP rotation** to stay under the brute-force threshold. Manual review of the Suspicious Events section is still recommended even when no brute-force alert fires.
 
 ---
-> **Disclaimer:** This tool is built as part of a my Digital Forensics learning journey documentation intended strictly for educational purposes and legitimate forensic investigations conducted with proper legal authorization. Unauthorized use against systems or files you do not own or have explicit permission to analyze is illegal.
+> **Disclaimer:** This tool is built as part of my Digital Forensics learning journey documentation intended strictly for educational purposes and legitimate forensic investigations conducted with proper legal authorization. Unauthorized use against systems or files you do not own or have explicit permission to analyze is illegal.
