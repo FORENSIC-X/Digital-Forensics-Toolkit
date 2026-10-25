@@ -1,12 +1,12 @@
 # Forensic Virtual Environment Setup Guide
 
 This guide documents the step-by-step setup of an isolated Ubuntu 26.04 
-forensics VM inside Oracle VirtualBox for safe digital forensics and 
+forensics VM [A Forensics-Lab VM] inside Oracle VirtualBox for safe digital forensics and 
 malware analysis work. Written based on a real installation experience 
 on a Windows 11 host with 16GB RAM and a 10-core processor.
 
-All forensic analysis in this toolkit is performed inside this VM to 
-ensure the host machine is never exposed to potentially malicious files.
+All forensic analysis is performed inside the Forensics-Lab VM to ensure 
+the host machine is never exposed to potentially malicious files.
 
 Install Oracle VirtualBox before reading this setup guide.
 
@@ -149,7 +149,7 @@ Select **No encryption.**
 
 > ⚠️ Write down your username and password. You will need them every 
 > time you log in and every time you run a `sudo` command to install 
-> tools like Python, FastAPI, Wireshark, Autopsy, and Volatility.
+> tools like Python, Wireshark, Autopsy, Volatility, and Sleuth Kit.
 
 **Checkboxes on account screen:**
 - ✅ Require my password to log in — leave ticked
@@ -202,102 +202,31 @@ and the VM returns to exactly this state in about 30 seconds — your
 Windows host and real files are never affected.
 
 > **Snapshot strategy going forward:**
-> After completing the Python + FastAPI setup in Step 5, take a second 
-> snapshot named `FastAPI-Ready`. This gives you two restore points — 
-> a completely clean OS, and a ready-to-work forensics environment.
+> After completing the Python + pip setup in Step 5 and installing your 
+> core forensic tools, take a second snapshot named `Forensics-Ready`. 
+> This gives you two restore points — a completely clean OS, and a 
+> ready-to-work forensics environment.
 
 
-### Step 5 — Install Python and FastAPI inside the VM
+### Step 5 — Install Python and Industry-grade forensic tools inside the VM
 
 Open a Terminal inside Ubuntu and run these one by one:
 
 ```bash
+# Core Python setup — sufficient for all CLI forensic tools
 sudo apt update
 sudo apt install python3 python3-pip -y
-pip3 install fastapi uvicorn python-multipart
+pip3 install pillow  # Required for Metadata Extractor (EXIF analysis)
+
+# Industry-grade forensic tools are installed separately as needed:
+# Autopsy, Volatility, Wireshark, Sleuth Kit
 ```
 
 ---
-
-### Step 6 — Transfer your script into the VM
-
-Two easy options:
-
-**Option A — Shared Folder (Recommended):**
-- VirtualBox → **Settings → Shared Folders → Add**
-- Point it to your `D:\CODING\DIGITAL FORENSICS` folder on Windows
-- Inside the VM it appears as a mounted drive — you can directly access your Python scripts from there
-
-**Option B — Just copy-paste:**
-- Open a text editor inside Ubuntu
-- Paste your `file_signature_analyzer.py` code
-- Save it
-
----
-
-### Step 7 — Run the Backend inside the VM
-
-Inside the Ubuntu terminal:
-
-```bash
-cd /path/to/your/script
-uvicorn file_signature_analyzer:app --reload --host 0.0.0.0
-```
-
-Note the `--host 0.0.0.0` — this is important. By default uvicorn only listens on `127.0.0.1` which is only accessible from inside the VM itself. `0.0.0.0` makes it accessible from your host machine's browser too.
-
----
-
-### Step 8 — Access it from your Windows browser
-
-In VirtualBox → **Settings → Network**, set the adapter to **Bridged Adapter**. This gives your VM its own IP address on your local network.
-
-Inside the VM, find its IP:
-
-```bash
-ip addr show
-```
-
-Look for something like `192.168.1.105`. Then on your **Windows browser**, open:
-
-```
-http://192.168.1.105:8000/analyze_file/
-```
-
-Your `index.html` frontend on Windows talks to the FastAPI backend running safely inside the VM.
-
----
-
-### The Complete Architecture
-
-```
-Your Windows Laptop (Host)
-├── Browser opens index.html
-├── JS sends file to http://192.168.x.x:8000/analyze_file/
-│
-└── VirtualBox VM (Forensics-Lab)
-    ├── Ubuntu running uvicorn
-    ├── FastAPI reads 8 bytes
-    ├── Returns JSON verdict
-    └── If anything goes wrong → Restore Clean-Install snapshot
-```
-
----
-
-### One Last Thing — Take a Second Snapshot
-
-After completing Steps 5 and 6 (Python + FastAPI installed, script ready), take another snapshot:
-
-```
-Snapshot 2: "FastAPI-Ready"
-```
-
-Now you have two restore points — a completely clean OS, and a ready-to-work forensics environment. Restoring takes about 30 seconds in VirtualBox.
-
 
 ### What is guaranteed
 - **The VM is the blast radius.** Malware executing inside Ubuntu cannot touch your Windows files, your Windows registry, your real documents, or your actual hard drive. The virtual hard disk is just a file sitting on your Windows machine — the malware inside has no idea Windows even exists underneath it.
-- **Snapshot restoration is instant and complete.** Restoring to `Clean-Install` or `FastAPI-Ready` rolls back every single file, every config change, every malware dropper — as if nothing ever happened. It takes about 30 seconds.
+- **Snapshot restoration is instant and complete.** Restoring to `Clean-Install` or `Forensics-Ready` rolls back every single file, every config change, every malware dropper — as if nothing ever happened. It takes about 30 seconds.
 
 ---
 
@@ -307,7 +236,7 @@ Now you have two restore points — a completely clean OS, and a ready-to-work f
 A highly sophisticated, nation-state level exploit can sometimes break out of the VM and reach the host. These are called **hypervisor vulnerabilities** and are worth tens of thousands of dollars on exploit markets. You will essentially never encounter this in a normal forensics workflow — but it is why professional malware labs use **dedicated physical machines** with no network connection for the most dangerous samples.
 
 **2. Shared Folders are a bridge**
-If you set up a Shared Folder between Windows and the VM (Step 6 Option A), malware running inside the VM **can see and write to that shared folder**. This means it could potentially drop files onto your real Windows filesystem through that bridge.
+If you set up a Shared Folder between Windows and the VM, malware running inside the VM **can see and write to that shared folder**. This means it could potentially drop files onto your real Windows filesystem through that bridge.
 
 The fix is simple:
 
@@ -338,7 +267,7 @@ Before dropping any suspicious file into your VM for analysis:
 ```
 ☐ Shared Folders → Disabled
 ☐ Network Adapter → Host-Only
-☐ Snapshot taken → "FastAPI-Ready"
+☐ Snapshot taken → "Forensics-Ready"
 ☐ Then analyze freely
 ☐ After analysis → Restore snapshot
 ```
