@@ -8,7 +8,7 @@
 
 When a web server is compromised, the attacker leaves footprints in the server's access logs. This tool parses raw Apache access logs, extracts structured forensic data using Regular Expressions, and automatically flags malicious behavior — all from the command line.
 
-This is a **standalone CLI tool**. A separate Windows Event Log Analyzer is maintained in a different repository.
+This is a **standalone CLI tool**. A separate Windows Event Log Analyzer is maintained in a different directory.
 
 ---
 
