@@ -70,11 +70,11 @@ A structured, end-to-end learning plan for the full DFIR Learning Stack. Built f
 - ✅ ExifTool installation and basic usage
 - ✅ Extracting metadata from images, documents, and other file types
 - ✅ Comparing ExifTool output to Python's Pillow-based extraction
-- ✅ Case investigations: CF-2026-001, CF-2026-002, CF-2026-003
+- 🔄 Case investigations: CF-2026-001, CF-2026-002, CF-2026-003, ...
 
 ---
 
-## Phase 4 — Coursera: Macquarie University Introduction to DFIR ✅
+## Phase 4 — Coursera: Macquarie University Introduction to DFIR 🔄
 
 - ✅ Module 1: Incident response lifecycle, roles, DFIR methodology
 - ✅ Module 1: Data breach roleplay exercise
@@ -296,8 +296,8 @@ A structured, end-to-end learning plan for the full DFIR Learning Stack. Built f
 |---|---|---|
 | 1 | Foundations + Python Tools | ✅ Complete |
 | 2 | VM Lab Setup | ✅ Complete |
-| 3 | ExifTool | ✅ Complete |
-| 4 | Coursera Macquarie | ✅ Complete |
+| 3 | ExifTool | 🔄 In Progress |
+| 4 | Coursera Macquarie | 🔄 In Progress |
 | 5 | Windows Event Log Theory | ✅ Complete |
 | 6 | Memory Forensics (Volatility 3) | 🔄 In Progress |
 | 7 | Windows Event Logs (Chainsaw/Hayabusa) | 🔲 Pending |
