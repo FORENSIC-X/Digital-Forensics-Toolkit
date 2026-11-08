@@ -217,16 +217,48 @@ A structured, end-to-end learning plan for the full DFIR Learning Stack. Built f
 
 ---
 
-## Phase 10 — TryHackMe DFIR Learning Paths 🔲
+## Phase 10 — TryHackMe DFIR Learning Paths and Rooms 🔲
 
 - 🔲 Complete **SOC Level 1** path (foundational blue team skills)
 - 🔲 Complete **DFIR: An Introduction** room
-- 🔲 Complete **Volatility** room (guided memory forensics)
-- 🔲 Complete **Autopsy** room (guided disk forensics)
+- 🔲 Complete **Legal Considerations in DFIR** room
+- 🔲 Complete **Key Artifacts for DFIR** room
+- 🔲 Complete **Memory Analysis Introduction** room
+- 🔲 Complete **Introduction to Windows IR** room
+- 🔲 Complete **IR Philosophy and Ethics** room
+- 🔲 Complete **RDP Lateral Movement Analysis** room
+- 🔲 Complete **IR Timeline Analysis** room
+- 🔲 Complete **Accessing a Compromised Network** room
+- 🔲 Complete **Compromised Windows Analysis** room
+- 🔲 Complete **Linux Process Analysis** room
+- 🔲 Complete **Linux File System Analysis** room
+- 🔲 Complete **Intro to Log Analysis** room
+- 🔲 Complete **Detection and Analysis** room
+- 🔲 Complete **MBR and GPT Analysis** room
+- 🔲 Complete **File and Hash Threat Intel** room
+- 🔲 Complete **Windows Incident Surace** room
+- 🔲 Complete **Intro to Cold System Forensics** room
+- 🔲 Complete **FAT32 Analysis** room
+- 🔲 Complete **Volatility Essentials** room (guided memory forensics)
+- 🔲 Complete **Memory Forensics** room
+- 🔲 Complete **Critical** room
+- 🔲 Complete **Forensics** room
+- 🔲 Complete **Unattended** room
+- 🔲 Complete **Forensic Imaging** room
+- 🔲 Complete **Intro to Digital Forensics** room
+- 🔲 Complete **Disk Analysis & Autopsy** room (guided disk forensics)
+- 🔲 Complete **Digital Forensics Case B4DM755** room
+- 🔲 Complete **macOS Forensics: The Basics** room
+- 🔲 Complete **Forensics - Registry Furensics** room
+- 🔲 Complete **macOS Forensics: Artefacts** room
+- 🔲 Complete **Session Forensics** room
+- 🔲 Complete **Linux Server Forensics** room
+- 🔲 Complete **Dead Endpoint** room
 - 🔲 Complete **Wireshark** rooms
-- 🔲 Complete **Windows Event Logs** room
-- 🔲 Complete **Windows Forensics 1 & 2** rooms
-- 🔲 Complete **DFIR Learning Path** (full path)
+- 🔲 Complete **Windows Forensics 1** room
+- 🔲 Complete **Windows Incident Response and Forensics** learning path
+- 🔲 Complete **Advanced Endpoint Investigations** learning path
+- Additional Rooms and Learning Paths, as required
 - 🔲 Write room writeups for each → commit to `11-tryhackme-dfir/writeups/`
 
 ---
@@ -303,7 +335,7 @@ A structured, end-to-end learning plan for the full DFIR Learning Stack. Built f
 | 7 | Windows Event Logs (Chainsaw/Hayabusa) | 🔲 Pending |
 | 8 | Disk Forensics (Autopsy + dd) | 🔲 Pending |
 | 9 | Network Forensics (Wireshark + tshark) | 🔲 Pending |
-| 10 | TryHackMe DFIR Paths | 🔲 Pending |
+| 10 | TryHackMe DFIR Paths and Rooms | 🔲 Pending |
 | 11 | Coursera Windows Forensics | 🔲 Pending |
 | 12 | Coursera Mobile Forensics | 🔲 Pending |
 | 13 | Full IR Simulations (CyberDefenders) | 🔲 Pending |
