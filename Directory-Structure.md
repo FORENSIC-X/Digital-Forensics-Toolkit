@@ -8,41 +8,39 @@ Complete directory structure for the full DFIR Learning Stack. Completed section
 Digital-Forensics-Toolkit/
 │
 ├── README.md                          # Top-level repo overview
-│
+├── Directory-Structure.md
+├── Learning-Plan.md
 │
 ├── 01-file-hashing/                   ✅ COMPLETE
 │   ├── README.md
 │   ├── evidence.txt
 │   └── file_hasher.py
 │
-│
 ├── 02-metadata-extraction/            ✅ COMPLETE
 │   ├── README.md
 │   └── metadata_extractor.py
-│
 │
 ├── 03-file-signature-analysis/        ✅ COMPLETE
 │   ├── README.md
 │   └── file_signature_analyzer.py
 │
-│
-├── 04-log-analysis/                   ✅ COMPLETE
-│   |── apache-web-server-logs/
+├── 04-log-analysis/                   🔄 In Progress
+│   |── apache-web-server-logs/        ✅ COMPLETE
 │   |    ├── README.md
 │   |    ├── basic-access.log
 │   |    └── log_analyzer.py
-|   └── windows-event-logs/
+|   └── windows-event-logs/            🔲 PENDING
+|        ├── README.md
+|        └── windows_event_log_analyzer.py  # Python CLI tool (self-written)
 │
-│
-├── 05-exiftool-forensics/             ✅ COMPLETE
+├── 05-exiftool-forensics/             🔄 In Progress
 │   ├── setup.md
-│   └── case-investigations/
+│   └── case-investigations/           🔄 In Progress
 │       ├── CF-2026-001.md
 │       ├── CF-2026-002.md
 │       └── CF-2026-003.md
 │
-│
-├── 06-coursera-macquarie/             ✅ COMPLETE
+├── 06-coursera-macquarie/             🔄 In Progress
 │   ├── module-01/
 │   │   ├── notes.md
 │   │   ├── data-breach-roleplay.md
@@ -58,10 +56,9 @@ Digital-Forensics-Toolkit/
 │   ├── memory-dumps/                  # Practice .raw / .mem dump files
 │   │   └── .gitkeep
 │   └── case-investigations/
-│       ├── CF-2026-004.md             # First memory forensics case
-│       ├── CF-2026-005.md
-│       └── CF-2026-006.md
-│
+│       ├── CF-2026-MF-001.md             # First memory forensics case
+│       ├── CF-2026-MF-002.md
+│       └── CF-2026-MF-003.md
 │
 ├── 08-windows-event-log-analysis/     🔲 PENDING
 │   ├── README.md
@@ -71,11 +68,9 @@ Digital-Forensics-Toolkit/
 │   ├── sample-logs/                   # Sample .evtx and exported XML files
 │   │   ├── sample-security.evtx
 │   │   └── sample-security.xml
-│   ├── windows_event_log_analyzer.py  # Python CLI tool (self-written)
 │   └── case-investigations/
-│       ├── CF-2026-007.md
-│       └── CF-2026-008.md
-│
+│       ├── CF-2026-Win-Log-001.md
+│       └── CF-2026-Win-Log-002.md
 │
 ├── 09-disk-forensics/                 🔲 PENDING
 │   ├── README.md
@@ -84,9 +79,8 @@ Digital-Forensics-Toolkit/
 │   ├── disk-images/                   # Practice disk image files
 │   │   └── .gitkeep
 │   └── case-investigations/
-│       ├── CF-2026-009.md
-│       └── CF-2026-010.md
-│
+│       ├── CF-2026-DF-001.md
+│       └── CF-2026-DF-002.md
 │
 ├── 10-network-forensics/              🔲 PENDING
 │   ├── README.md
@@ -96,9 +90,8 @@ Digital-Forensics-Toolkit/
 │   ├── pcap-samples/                  # Practice .pcap files
 │   │   └── .gitkeep
 │   └── case-investigations/
-│       ├── CF-2026-011.md
-│       └── CF-2026-012.md
-│
+│       ├── CF-2026-NF-001.md
+│       └── CF-2026-NF-002.md
 │
 ├── 11-tryhackme-dfir/                 🔲 PENDING
 │   ├── README.md
